@@ -15,7 +15,7 @@ const GameList = () => {
               borderRadius={8}
               src={genre.image_background}
             ></Image>
-            <Text>{genre.name}</Text>
+            <Text fontSize="lg">{genre.name}</Text>
           </HStack>
         </ListItem>
       ))}

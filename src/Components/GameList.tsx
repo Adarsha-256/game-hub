@@ -11,8 +11,9 @@ import {
 import UseGenres, { Genre } from "../hooks/UseGenres";
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
-const GameList = ({ onSelectGenre }: Props) => {
+const GameList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, error } = UseGenres();
   if (isLoading) return <Spinner />;
   if (error) return null;
@@ -27,6 +28,7 @@ const GameList = ({ onSelectGenre }: Props) => {
               src={genre.image_background}
             ></Image>
             <Button
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               onClick={() => onSelectGenre(genre)}
               fontSize="lg"
               variant="link"

@@ -7,7 +7,7 @@ interface FetchResponse<T> {
   results: T[];
 }
 
-const UseData = <T>(
+const useData = <T>(
   endpoint: string,
   requestConfig?: AxiosRequestConfig,
   dept?: any[]
@@ -39,4 +39,4 @@ const UseData = <T>(
   return { data, error, isLoading };
 };
 
-export default UseData;
+export default useData;

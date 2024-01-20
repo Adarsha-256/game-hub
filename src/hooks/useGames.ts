@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import useData from "./UseData";
+import UseData from "./UseData";
+import { Genre } from "./UseGenres";
 export interface Platform {
   id: number;
   name: string;
@@ -20,6 +21,9 @@ interface Gamegetresponse {
   results: Game[];
 }
 
-const useHooks = () => useData<Game>("/games");
+const useGames = (selectedGenre: Genre | null) =>
+  UseData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ]);
 
-export default useHooks;
+export default useGames;

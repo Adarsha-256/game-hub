@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import useData from "./useData";
+import Genres from "../data/Genres";
 
 export interface Genre {
   id: number;
@@ -8,6 +8,6 @@ export interface Genre {
   image_background: string;
 }
 
-const UseGenres = () => useData<Genre>("/genres");
+const UseGenres = () => ({ data: Genres, isLoading: false, error: null });
 
 export default UseGenres;
